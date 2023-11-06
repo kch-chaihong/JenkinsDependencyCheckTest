@@ -13,6 +13,7 @@ pipeline {
 				dependencyCheck additionalArguments: '''
 				    --format HTML
 				    --format XML
+				    --suppression suppression.xml
 				    -o './'
 				    -s './'
 				    -f 'ALL'

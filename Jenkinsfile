@@ -8,19 +8,10 @@ pipeline {
 			}
 		}
 
-		stage('OWASP DependencyCheck') {
+		stage('OWASP DependencyCheck') {   
 			steps {
-				dependencyCheck additionalArguments: '''
-				    --format HTML
-				    --format XML
-				    --suppression suppression.xml
-				    -o './'
-				    -s './'
-				    -f 'ALL'
-				    --prettyPrint
-				''', odcInstallation: 'OWASP Dependency-Check Vulnerabilities'
+				dependencyCheck additionalArguments: '--format HTML --suppression suppression.xml --format XML', odcInstallation: 'OWASP Dependency-Check Vulnerabilities'   }
 			}
-		}
 	}	
 	post {
 		success {
